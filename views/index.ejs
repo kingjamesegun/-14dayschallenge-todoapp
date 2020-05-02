@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TODO APP</title>
+        <!-- inline style -->
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            h1{
+                color:#fff;
+                font-size: 90%;
+                padding: 20px 0 0 40px;
+            }
+            nav{
+                background-color: rgb(78, 77, 78);
+                height: 60px;
+            }
+           .text{
+               margin-top: 2%;
+               margin-left: 25%;
+               width: 43%;
+               border: 2px solid rgb(43, 88, 211);
+               
+           }
+           input{
+                height: 40px;
+                padding: 0 20px;
+
+           }
+            .container{
+                font-size: 80%;
+                width: 50%;
+                margin: 20px auto;  
+                                                                                  
+            }
+            li{
+                margin-bottom: 3%;
+                font-size: 150%;
+                border: 1px solid rgb(151, 149, 149);
+                box-shadow: 0 2px 2px;
+                padding: 3% 3% 5% 3%;
+                list-style-type: none;
+            }
+            .more{
+                font-size: 80%;
+                color:rgb(33, 69, 233);
+                float: right;
+            }
+            .edit{
+                text-decoration: none;
+                background-color: blue;
+                color: #fff;
+                padding: 1% 3%;
+                border-radius: 10px;
+                margin-top: 5%;
+            }
+            .submit{
+               color: #fff;
+               background-color: rgb(59, 16, 214);
+            }
+            .submit:hover{
+                background-color: rgb(100, 64, 228);
+            }
+            p{
+                margin-bottom: 1%;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <h1>Todo App</h1>
+        </nav>
+        <form action="/todos" method='POST'>
+            <input type="text"   class="text" name="text" placeholder="what todo">
+            <input type="submit" class="submit">
+        </form>
+        <section class="container">
+            <ul>
+                <!-- iterating through the list of todo -->
+                <%todos.forEach((todo)=>{%>
+                    <li>List: <%= todo.text%>
+                    </br>
+                    <p>Completed: <%= todo.completed%></p>
+                        
+                        <div>
+                            <a href="/todos/<%=todo._id%>/edit" class="edit">Edit</a>
+                            <a href="/todos/<%=todo._id%>" class="more">More about it</a>
+                                
+                        
+                        </div>
+                    
+                    </li>
+                    
+                <%})%>
+            </ul>
+            
+        </section>
+        
+    </body>
+</html>

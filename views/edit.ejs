@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TODO APP</title>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            h1{
+                color:#fff;
+                font-size: 90%;
+                padding: 20px 0 0 40px;
+            }
+            h2{
+                color:rgb(75, 74, 74)
+            }
+            nav{
+                background-color: rgb(78, 77, 78);
+                height: 60px;
+            }
+           .text{
+               margin-left: 25%;
+               width: 40%;
+               border: 2px solid rgb(43, 88, 211);
+               
+           }
+           input{
+                height: 40px;
+                padding: 0 20px;
+                margin-bottom: 2%;
+           }
+            .container{
+                font-size: 80%;
+                width: 50%;
+                margin: 20px auto;                                                                     
+            }
+            .submit{
+                margin-left: 25%;
+               width: 40%;
+               color: #fff;
+               background-color: rgb(59, 16, 214);
+            }
+            .submit:hover{
+                background-color: rgb(100, 64, 228);
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <h1>Todo App</h1>
+        </nav>
+        <div class="container"> 
+            <h2> EDIT <%=newtodo.text%></h2>    
+        </div>
+        <form action="/todos/<%=newtodo._id%>?_method=PUT" method='POST'>
+            <input type="text"   class="text" name="text" value="<%=newtodo.text%>">
+            <br>
+            <input type="text" class="text" name="completed" value="<%=newtodo.completed%>">
+            <br>
+            <input type="submit" class="submit">
+        </form>
+        
+        
+    </body>
+</html>
